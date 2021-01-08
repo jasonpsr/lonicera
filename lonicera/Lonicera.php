@@ -1,6 +1,7 @@
 <?php
 
 use lonicera\core\Route;
+use Illuminate\Database\Capsule\Manager as Capsule;
 
 class Lonicera
 {
@@ -8,8 +9,6 @@ class Lonicera
 
     public function run()
     {
-        require_once _SYS_PATH . 'Loader.php';
-        spl_autoload_register(array('Loader', 'loadLibClass'));
         $this->route();
         $this->dispatch();
 
@@ -25,6 +24,19 @@ class Lonicera
             set_error_handler(['Lonicera', 'errorHandler']);
         }
         set_exception_handler(['Lonicera', 'errorHandler']);
+
+        $capsule = new Capsule();
+        $capsule->addConnection([
+            'driver'    => 'mysql',
+            'host'      => 'localhost',
+            'database'  => 'test',
+            'username'  => 'root',
+            'password'  => 'root',
+            'charset'   => 'unf8',
+            'collation' => 'unf8_unicode_ci',
+            'prefix'    => '',
+        ]);
+        $capsule->bootEloquent();
     }
 
     public function route()

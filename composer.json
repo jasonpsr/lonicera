@@ -1,0 +1,24 @@
+{
+  "name": "lonicera/lonicera",
+  "description": "The Lonicera Framework.",
+  "type": "project",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Jason",
+      "email": "405339556@qq.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "illuminate/database": "5.4.27",
+    "illuminate/routing": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "lonicera \\": "lonicera",
+      "app \\": "app",
+      "library \\": "library"
+    }
+  }
+}

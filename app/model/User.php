@@ -2,13 +2,9 @@
 
 namespace app\model;
 
-use lonicera\core\Model;
-
-class User extends Model
+class User extends \Illuminate\Database\Eloquent\Model
 {
-    public $id;
-    public $age;
-    public $name;
+    protected $table = 'user';
 
-    protected $rule = ['pk' => 'id', 'plStrategy' => 'generator'];
+    public $timestamps = false;
 }
