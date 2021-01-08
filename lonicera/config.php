@@ -18,4 +18,8 @@ return [
         'param'    => [],
     ],
     'smtp'              => [],
+    'interceptorArr'    => [
+        'app\front\module\LoginInterceptor' => '*',
+        'app\front\module\PayInterceptor'   => '~front/in(.*)~',
+    ],
 ];

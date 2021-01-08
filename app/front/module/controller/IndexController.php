@@ -7,6 +7,16 @@ use lonicera\core\Controller;
 
 class IndexController extends Controller
 {
+    public function _before_()
+    {
+        echo '_before_';
+    }
+
+    public function _after_()
+    {
+        echo '_after_';
+    }
+
     public function indexAction()
     {
         $user = new User();

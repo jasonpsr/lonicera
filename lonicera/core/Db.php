@@ -32,7 +32,7 @@ class Db
         try {
             $this->dbLink = new \PDO($config['dsn'], $config['username'], $config['password'], $config['param']);
         } catch (\PDOException $e) {
-            throw $e;
+            throw new BaseException('数据库连接失败', 1000, $e);
         }
 
         return $this->dbLink;

@@ -9,10 +9,12 @@ class Controller
     private $db;
     private $view;
     protected static $route;
+    protected $request;
 
     public function __construct()
     {
         $this->view = new PhpRender();
+        $this->request = new Request();
     }
 
     protected function assign($key, $value)
